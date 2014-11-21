@@ -634,16 +634,21 @@
                 var menuList = $('<ul class="iw-contextMenu iw-created iw-cm-menu" id="iw-contextMenu' + randomNum + '"></ul>');
                 for (var i = 0; i < selector.length; i++) {
                     var selObj = selector[i],
+                        id = selObj.id || '',
                         name = selObj.name,
                         fun = selObj.fun,
                         subMenu = selObj.subMenu,
                         img = selObj.img || '',
+                        fa = selObj.fa || '',
                         title = selObj.title || "",
                         className = selObj.className || "",
                         disable = selObj.disable,
-                        list = $('<li title="' + title + '" class="' + className + '">' + name + '</li>');
+                        list = $('<li '+(id&&'id="'+id+'"')+' title="' + title + '" class="' + className + '">' + name + '</li>');
                     if (img) {
                         list.prepend('<img src="' + img + '" align="absmiddle" class="iw-mIcon" />');
+                    }
+                    if (fa) {
+                        list.prepend('<i class="fa '+fa+'"></i> ');
                     }
 
                     //to add disable
